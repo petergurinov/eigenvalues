@@ -1,0 +1,16 @@
+CC=gcc
+CFLAGS= -c -x c
+
+all: main_evc
+
+main_evc: evc_10_07.o sim_10_07.o main_10_07.o
+	$(CC) evc_10_07.o sim_10_07.o main_10_07.o -lm -o evc.exe
+
+evc_10_07.o: evc_10_07.c
+	$(CC) $(CFLAGS) task_10_07.h evc_10_07.c
+
+sim_10_07.o: sim_10_07.c
+	$(CC) $(CFLAGS) sim_10_07.c
+
+main_10_07.o: main_10_07.c
+	$(CC) $(CFLAGS) main_10_07.c
